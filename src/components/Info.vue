@@ -1,5 +1,6 @@
 <template>
   <div>
+    
     <p v-if="mostra_mensagem">Estou trabalhando no momento.</p>
     <p v-else>Não estou trabalhando no momento.</p>
     <p>Utilizo as seguintes tecnologias:</p>
@@ -15,21 +16,26 @@
       Para acessar meu portifólio
       <a v-bind:href="meu_link" target="_blank"> clique aqui</a>
     </p>
-    <!-- <Picture /> -->
+    <Picture />
+    <Form />
   </div>
 </template>
 <script>
 import Picture from "./Picture.vue"
+import Form from "./Form.vue"
 
 export default {
   name: "Info",
   components: {
-      Picture
+      Picture,
+      Form
+  },
+  props: {
+    email: String
   },
   data() {
       return {
           mostra_mensagem: false,
-          email: 'felj.gomes@gmail.com',
           mostra_email: false,
           meu_link: 'https://www.google.com.br/',
           textoBotao: 'Mostrar e-mail',

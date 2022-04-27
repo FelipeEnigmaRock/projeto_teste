@@ -1,14 +1,27 @@
 <template>
-    <img :src="avatar" :alt="descricao">
+  <div>
+    <img :src="avatar" :alt="descricao" />
+    <MudarImagem @mudar-imagem="trocarImagem" />
+  </div>
 </template>
 <script>
+import MudarImagem from "./MudarImagem.vue";
+
 export default {
-    name: 'Picture',
-    data() {
-        return{
-            avatar: "https://assets.pokemon.com/assets/cms2/img/pokedex/full/354_f2.png",
-            descricao: "Banette Mega"
-        }
-    }
-}
+  name: "Picture",
+  components: {
+    MudarImagem,
+  },
+  data() {
+    return {
+      avatar: "/img/banette.png",
+      descricao: "Banette Mega",
+    };
+  },
+  methods: {
+    trocarImagem() {
+      this.avatar = "/img/absol.png";
+    },
+  },
+};
 </script>
